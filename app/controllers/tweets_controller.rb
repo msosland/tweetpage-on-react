@@ -24,7 +24,8 @@ class TweetsController < ApplicationController
 
     hashtags_names = params[:hashtags] || []
     hashtags_names.each do |name|
-      tweet.hashtags << Hashtag.where(name: name).first_or_create
+      hashtag = Hashtag.find(:first, conditions: ["name=?", name])
+      hashtag ? tweet.hashtags << hashtag : tweet.hashtags.create(name: name)
     end
 
     render json: tweet.to_json(methods: :hashtag_names)
@@ -35,5 +36,4 @@ class TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit( :content, :username, :handle, :avatar_url )
   end
-
 end
