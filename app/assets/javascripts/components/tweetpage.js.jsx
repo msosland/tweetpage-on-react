@@ -37,6 +37,26 @@ var TweetPage = React.createClass({
     });
   },
 
+  handleSearchSubmit: function(keyword) {
+    console.log(keyword.keyword);
+    this.setState({data: allTweets}, function() {
+      $.ajax({
+        url: "/tweets/search/" + keyword.keyword,
+        dataType: 'json',
+        type: 'GET',
+        success: function(data) {
+          console.log(data);
+          this.setState({data: data});
+        }.bind(this),
+        error: function(xhr, status, err) {
+          tweets.pop();
+          this.setState({data: keyword});
+          console.error(this.props.url, status, err.toString());
+        }.bind(this)
+      });
+    });
+  },
+
 
   getInitialState: function() {
     return {data: []};
@@ -49,14 +69,19 @@ var TweetPage = React.createClass({
   render: function() {
     return (
       <div>
-        <section id="tweet-box">
-          <TweetForm onTweetSubmit={this.handleTweetSubmit} />
-        </section>
-        <section id="trends-container">
-          <HashPage url="/hashtags/popular" />
-        </section>
-        <section id="tweets-container">
-          <TweetList data={this.state.data} />
+        <header id="top-nav">
+          <SearchForm onSearchSubmit={this.handleSearchSubmit} />
+        </header>
+        <section className="container">
+          <section id="tweet-box">
+            <TweetForm onTweetSubmit={this.handleTweetSubmit} />
+          </section>
+          <section id="trends-container">
+            <HashPage url="/hashtags/popular" />
+          </section>
+          <section id="tweets-container">
+            <TweetList data={this.state.data} />
+          </section>
         </section>
       </div>
     );
