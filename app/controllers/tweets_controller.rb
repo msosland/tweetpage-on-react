@@ -1,4 +1,8 @@
 class TweetsController < ApplicationController
+  def index
+    @tweets = Tweet.ordered_json
+  end
+
   def recent
     Tweet.ordered_json
     tweets = Tweet.ordered_json
