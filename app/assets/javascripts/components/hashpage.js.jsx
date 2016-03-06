@@ -20,7 +20,6 @@ var HashPage = React.createClass({
   },
 
   render: function() {
-    console.log(this.state.data);
     return (
       <div>
         <h1>Trends</h1>
