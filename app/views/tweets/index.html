@@ -6,13 +6,13 @@
   <i class="fa fa-search"></i>
 </header>
 <section class="container">
-  <section id="tweet-box">
-    <%= react_component('TweetFormContainer2', {url: "/tweets"}) %>
-  </section>
+<!--   <section id="tweet-box">
+    <%= react_component('TweetFormContainer', {url: "/tweets"}) %>
+  </section> -->
   <section id="trends-container">
     <%= react_component('HashPage', {url: "/hashtags/popular"}) %>
   </section>
   <section id="tweets-container">
-    <%= react_component('TweetPage', {url: "/tweets/recent"}) %>
+    <%= react_component('TweetPage', {url: "/tweets/recent", otherUrl: "/hashtags/popular"}) %>
   </section>
 </section>

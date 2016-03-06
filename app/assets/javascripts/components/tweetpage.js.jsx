@@ -17,6 +17,25 @@ var TweetPage = React.createClass({
     });
   },
 
+  handleTweetSubmit: function(tweet) {
+    this.setState({data: allTweets}, function() {
+      $.ajax({
+        url: "/tweets",
+        dataType: 'json',
+        type: 'POST',
+        data: {tweet: tweet},
+        success: function(data) {
+          allTweets.unshift(data);
+          this.setState({data: allTweets});
+        }.bind(this),
+        error: function(xhr, status, err) {
+          tweets.pop();
+          this.setState({data: tweets});
+          console.error(this.props.url, status, err.toString());
+        }.bind(this)
+      });
+    });
+  },
 
 
   getInitialState: function() {
@@ -30,20 +49,30 @@ var TweetPage = React.createClass({
   render: function() {
     return (
       <div>
-        <TweetList data={this.state.data} />
+        <section id="tweet-box">
+          <TweetForm onTweetSubmit={this.handleTweetSubmit} />
+        </section>
+        <section id="tweets-container">
+          <TweetList data={this.state.data} />
+        </section>
       </div>
     );
   }
 });
 
-// $(document).ready(function() {
-//   ReactDOM.render(
-//     <TweetPage url="/tweets/recent" />,
-//     document.getElementById('tweets-container')
-//   );
 
 //   ReactDOM.render(
 //     <HashPage url="/hashtags/popular" />,
 //     document.getElementById('trends-container')
 //   );
 // });
+
+$(document).on("page:change", function() {
+  var $content = $("#content");
+  if ($content.length > 0) {
+    React.renderComponent(
+      <CommentBox url="comments.json" pollInterval={2000} />,
+      document.getElementById('content')
+    );
+  }
+})

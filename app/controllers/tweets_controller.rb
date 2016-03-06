@@ -21,6 +21,7 @@ class TweetsController < ApplicationController
     tweet.handle ||= "@" + Faker::Internet.user_name
     tweet.avatar_url ||= Faker::Avatar.image(tweet.username)
     tweet.save
+    p "are we here???"
 
     hashtags_names = params[:hashtags] || []
     hashtags_names.each do |name|
