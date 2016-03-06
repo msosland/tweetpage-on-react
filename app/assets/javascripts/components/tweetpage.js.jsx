@@ -52,6 +52,9 @@ var TweetPage = React.createClass({
         <section id="tweet-box">
           <TweetForm onTweetSubmit={this.handleTweetSubmit} />
         </section>
+        <section id="trends-container">
+          <HashPage url="/hashtags/popular" />
+        </section>
         <section id="tweets-container">
           <TweetList data={this.state.data} />
         </section>
