@@ -1,8 +1,5 @@
-
-
 var Tweet = React.createClass({
   render: function() {
-    console.log(this);
     return (
       <div className="tweet">
         <div className="tweet">

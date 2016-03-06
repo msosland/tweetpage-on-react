@@ -14,27 +14,9 @@
     </form>
   </section>
   <section id="trends-container">
-    <h3>Trends</h3>
-    <ul>
-      <li>filler</li>
-      <li>filler</li>
-      <li>filler</li>
-      <li>filler</li>
-      <li>filler</li>
-      <li>filler</li>
-      <li>filler</li>
-      <li>filler</li>
-      <li>filler</li>
-      <li>filler</li>
-    </ul>
+    <%= react_component('HashPage', {url: "/hashtags/popular"}) %>
   </section>
   <section id="tweets-container">
     <%= react_component('TweetPage', {url: "/tweets/recent"}) %>
-    // <script type="text/jsx">
-    //   ReactDOM.render(
-    //     <TweetPage url="/tweets/recent" />,
-    //     document.getElementById('tweets-container')
-    //   );
-    // </script>
   </section>
 </section>

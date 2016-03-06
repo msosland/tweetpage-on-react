@@ -1,5 +1,3 @@
-
-
 var TweetList = React.createClass({
   render: function() {
     var tweetNodes = this.props.data.map(function(tweet) {

@@ -1,7 +1,5 @@
-
-
-var TweetPage = React.createClass({
-  loadCommentsFromServer: function() {
+var HashPage = React.createClass({
+  loadHashtagsFromServer: function() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -18,28 +16,16 @@ var TweetPage = React.createClass({
     return {data: []};
   },
   componentDidMount: function() {
-    this.loadCommentsFromServer();
-    // setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+    this.loadHashtagsFromServer();
   },
 
   render: function() {
     console.log(this.state.data);
     return (
       <div>
-        <TweetList data={this.state.data} />
+        <h1>Trends</h1>
+        <HashList data={this.state.data} />
       </div>
     );
   }
-});
-
-$(document).ready(function() {
-  ReactDOM.render(
-    <TweetPage url="/tweets/recent" />,
-    document.getElementById('tweets-container')
-  );
-
-  ReactDOM.render(
-    <HashPage url="/hashtags/popular" />,
-    document.getElementById('trends-container')
-  );
 });
