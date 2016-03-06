@@ -4,11 +4,8 @@ var TweetFormContainer = React.createClass({
   },
 
   handleTweetSubmit: function(tweet) {
-    console.log(this.state.data);
-    console.log(tweet);
-    var tweets = this.state.data;
-    tweets.push(tweet);
-    this.setState({data: tweets}, function() {
+    allTweets.unshift(tweet);
+    this.setState({data: allTweets}, function() {
       $.ajax({
         url: this.props.url,
         dataType: 'json',

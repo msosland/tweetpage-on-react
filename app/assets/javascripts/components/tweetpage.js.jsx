@@ -1,3 +1,5 @@
+var allTweets;
+
 var TweetPage = React.createClass({
   loadTweetsFromServer: function() {
     $.ajax({
@@ -6,6 +8,8 @@ var TweetPage = React.createClass({
       cache: false,
       success: function(data) {
         this.setState({data: data});
+        allTweets = this.state.data;
+        console.log(this.state.data);
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
