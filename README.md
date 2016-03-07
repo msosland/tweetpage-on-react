@@ -1,18 +1,13 @@
-<<<<<<< HEAD
+
 # tweetpage-on-react
-=======
+This is a Mini Twitter app using React on Rails. The back-end was pre-written, and the front-end view is now entirely rendered by React. This example chooses to use JSX and also uses `React.createClass` over extends `React.component`.
+
+
 ## Lil' Twitter
-
-## Learning Competencies
-
-- Build a client-side-heavy Rails application.
-- Consume a JSON API.
-- Build Single Page App.
-- write organized JavaScript code
 
 ## Summary
 
-Your mission: build a one-page app using  Javascript to render a simple dashboard for a twitter application. The HTML, CSS, and back-end are already written for you -- all you need to do is write the JavaScript.
+Mission: build a one-page app using  Javascript to render a simple dashboard for a twitter application. The HTML, CSS, and back-end are already written for you -- all you need to do is write the JavaScript.
 
 ## Development Setup
 
@@ -43,48 +38,13 @@ Your site needs to have the following functionality:
 >
 > - When a user clicks on the Lil Twitter header, the 50 most recent tweets are displayed.
 
-All of this will be accomplished using JavaScript. Spend some time thinking about your architecture – what objects do you need? What are their interfaces? What does your file structure look like? Make sure you aren't micromanaging or over-designing -- Big Design Up Front is never great -- but your team will benefit from some basic architecture desicisions before starting.
+All of this will be accomplished using JavaScript.
 
 Consider the following diagram, which highlights the different views your
 solution might include:
 
 ![views diagram](doc/views.png)
 
-
-### Release 1: Build
-
-Start by following the instructions & sample code here:
-
-[emails-backbone-example](../../../emails-backbone-example)
-
-Okay, now build the thing. You should avoid any changes to the server-side code, although if you feel like changes are necessary, implement them and make sure the tests reflect your alterations. You will need to remove the filler elements in `app/views/index.html`. Structural changes to HTML and CSS should not be necessary, and it is generally a bad idea to unilaterally change a resource that your entire team depends on. Any changes to the existing code base, no matter how small, should be done intentionally and in consultation with your entire team.
-
-**Build your solution in the following order:**
-
-1. Tweet model
-2. Tweets collection
-
-> Before moving on: Get approval from an instructor once you can fetch tweets from the server.
-
-3. Timeline view
-4. Tweet view
-
-> Before moving on: Ask an instructor for a review of your Timeline & Tweet views
-
-5. SearchBox view
-6. Compose view
-7. HashTag model
-8. HashTags view
-9. HashTag view
-
-
-### Release 2: Expand
-
-The benefits of OO architecture is that it is easily extendable. Add an additional feature to your application, like:
-
- - a system for checking if new tweets have been created since page load, using long-polling.
- - have the river of tweets only display 10 tweets, and dynamically load more when the user scrolls to the bottom of the page.
- - give the user the ability to click hashtags inside tweets, which would display tweets associated with that hashtag.
 
 ### Endpoint Documentation
 
@@ -176,4 +136,4 @@ The endpoint returns the created tweet as JSON.
    }
 ]
 ```
->>>>>>> r1remote/master
+
