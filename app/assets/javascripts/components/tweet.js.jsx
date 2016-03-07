@@ -10,7 +10,7 @@ var Tweet = React.createClass({
               <span className="username">{this.props.children[2]}</span>
               <span className="timestamp">{"  " + Math.floor((new Date() - Date.parse(this.props.children[4])) / 1000 / 3600) + "h"}</span>
             </p>
-            <p>{this.props.children[0]}</p>
+            <p className="contenttt">{this.props.children[0]}</p>
           </div>
           <div className="likeButton"><LikeButton /></div>
         </div>
