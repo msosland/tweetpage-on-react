@@ -6,5 +6,5 @@ TwitterDashboardApi::Application.routes.draw do
   post 'tweets', to: 'tweets#create'
   get 'hashtags/popular', to: 'hashtags#popular'
 
-  root to: 'static#index'
+  root to: 'tweets#index'
 end
