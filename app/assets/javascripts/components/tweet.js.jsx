@@ -12,6 +12,7 @@ var Tweet = React.createClass({
             </p>
             <p>{this.props.children[0]}</p>
           </div>
+          <div className="likeButton"><LikeButton /></div>
         </div>
       </div>
     );

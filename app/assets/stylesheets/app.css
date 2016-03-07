@@ -149,3 +149,12 @@ p {
   color: #B1BEC8;
 }
 
+.likeButton {
+  width: 100px;
+  border-radius: 6px;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  float: right;
+}
+
